@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - S1 - M05</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- Actividad 1 (4 pasos) -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo')">
+        <div class="title">
+            <span>👋 Actividad 1: Saludo y Ritual Gnius Club (4 pasos)</span>
+            <span>⏰ Tiempo: 2.5 minutos</span>
+        </div>
+        <div class="subtitle">Dar la bienvenida y preparar el ambiente</div>
+    </div>
+    <div id="saludo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 2 "Gnius Club"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                ¡Hola, Genios! Hoy nos espera una misión interesante. Vamos a explorar cómo podemos transformar figuras en Tinkercad, aprendiendo a combinar objetos sólidos y huecos para crear nuevas formas.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1.0 minutos): Proyectar Diapositiva3 "¿Cómo están?"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Antes de sumergirnos en el diseño 3D, me gustaría saber cómo se sienten. Si están con buena energía, estiren ambos brazos hacia arriba lo más que puedan. Si sienten que les falta un poco de chispa, estiren ambos brazos hacia los costados lo más que puedan y respiren hondo. Esto nos ayuda a ver cómo estamos como grupo hoy.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 4 "Gracias por Asistir"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Como siempre, antes de empezar, tomémonos un momento para agradecer por estar aquí, listos para aprender y experimentar. Juntemos las manos y digamos "Gracias por Asistir". Esto nos ayuda a centrarnos y estar presentes en la misión de hoy.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1.0 minutos): Proyectar Diapositiva 5 "Objetivos de la Misión"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hoy tenemos dos objetivos clave: <br>
+                1. Aprender a combinar objetos sólidos en Tinkercad para crear nuevas formas. <br>
+                2. Explorar cómo usar objetos huecos para cortar y transformar otras formas. ¡Es hora de aprender y experimentar!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 2 (3 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('innovacion')">
+        <div class="title">
+            <span>💡 Actividad 2: Innovación del Día (3 pasos)</span>
+            <span>⏰ Tiempo: 3.5 minutos</span>
+        </div>
+        <div class="subtitle">Conocer una innovación impresionante</div>
+    </div>
+    <div id="innovacion" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 6 "Innovación del Día"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hoy les traigo una innovación impresionante llamada BioPen. Este bolígrafo 3D permite a los cirujanos literalmente dibujar nuevas células directamente sobre huesos y tejidos durante las cirugías, ayudando a regenerar partes del cuerpo dañadas.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Proyectar Diapositiva 7 "Video de Innovación"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Vamos a ver un breve video que muestra cómo el BioPen está siendo utilizado para imprimir células vivas directamente en el cuerpo humano, abriendo nuevas posibilidades en el tratamiento de lesiones y enfermedades.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 8 "Reflexión sobre la Innovación"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Es impresionante ver cómo la tecnología de impresión 3D, que estamos aprendiendo a usar, tiene aplicaciones tan revolucionarias como el BioPen.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 3 (10 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('braingym')">
+        <div class="title">
+            <span>🧠 Actividad 3: Brain Gym (10 pasos)</span>
+            <span>⏰ Tiempo: 20 minutos</span>
+        </div>
+        <div class="subtitle">Ejercitar habilidades en Tinkercad</div>
+    </div>
+    <div id="braingym" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 9 "Copiar y Duplicar Objetos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hoy vamos a explorar cómo manipular objetos en Tinkercad copiándolos, duplicándolos y agrupándolos. Estos son pasos esenciales para construir diseños más complejos. Quiero que abran Tinkercad y vayan siguiendo mis pasos conforme les voy explicando. Primero, vamos a entender la diferencia entre copiar y duplicar.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Proyectar Diapositiva 10 "Copiar y Pegar"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Copiar y pegar es muy similar a lo que hacemos en un documento de texto. Seleccionamos el objeto que queremos copiar, hacemos clic en el botón "Copiar" y luego en "Pegar". Esto nos crea una copia del objeto original en una nueva ubicación. Es ideal para replicar elementos que deben tener la misma forma y tamaño. Imagina que estás diseñando una serie de ventanas para un edificio, podrías copiar y pegar la misma ventana para asegurarte de que todas sean idénticas.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (2 minutos): Proyectar Diapositiva 11 "Duplicar Objetos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Duplicar es un poco diferente. Cuando duplicamos un objeto, este aparece en la misma posición que el original. Esto es útil cuando queremos mover o modificar el objeto duplicado en relación con el original. Por ejemplo, si estás creando una fila de columnas, duplicar te permite posicionar la nueva columna justo donde la necesitas sin tener que ajustar mucho.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (2 minutos): Proyectar Diapositiva 12 "Practicando Copiar y Duplicar"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora, seleccionen una forma en su espacio de trabajo y prueben a copiarla y pegarla en una nueva posición. Luego, hagan lo mismo con la opción de duplicar y noten cómo la copia se mantiene en su lugar. Piensen en cómo usarían estas funciones para repetir patrones o elementos en sus propios diseños.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (2 minutos): Proyectar Diapositiva 13 "Agrupar Objetos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora que ya saben cómo copiar y duplicar, vamos a aprender a agrupar objetos. Agrupar es útil cuando queremos que varias formas se comporten como una sola unidad. Es como si estuvieras juntando bloques de construcción para hacer una estructura más grande. Por ejemplo, puedes agrupar todas las partes de un coche para que se muevan juntas.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (2 minutos): Proyectar Diapositiva 14 "Seleccionar y Agrupar"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Para agrupar objetos, primero seleccionamos todos los que queremos combinar. Lo hacemos manteniendo presionada la tecla "Shift" y haciendo clic en cada uno. Luego, pulsamos en "Agrupar" en la barra de herramientas. Notarán que las formas se combinan en una sola entidad y adquieren un solo color. Esto es útil para mover o duplicar todo el grupo como si fuera un solo objeto.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (1 minuto): Proyectar Diapositiva 15 "Desagrupar Objetos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Si alguna vez necesitan separar los objetos que agruparon, pueden hacerlo seleccionando el objeto agrupado y luego haciendo clic en "Desagrupar". Esto separará el objeto en sus partes originales, permitiéndonos hacer cambios individuales sin afectar el resto del diseño. Es como si desarmáramos un rompecabezas para cambiar una pieza.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 8 (2 minutos): Proyectar Diapositiva 16 "Crear Huecos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora, vamos a aprender a crear huecos en un objeto sólido. Necesitamos una forma sólida y una forma hueca. Piensen en esto como esculpir un bloque de piedra: usaremos la forma hueca para "restar" material del sólido y crear un espacio vacío dentro de él. Por ejemplo, si queremos hacer una ventana en una pared, usaríamos una forma hueca para crear el espacio vacío donde estaría la ventana.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 9 (2 minutos): Proyectar Diapositiva 17 "Especificar Huecos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Seleccionen la forma que quieran usar para crear el hueco y marquen la opción "Hueco" en el panel de propiedades. Luego, posicionen esta forma dentro o sobre el objeto sólido donde quieren hacer el hueco. Finalmente, seleccionen ambos objetos y hagan clic en "Agrupar". Esto cortará el sólido según la forma del hueco, creando el espacio vacío que buscamos.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 10 (1 minuto): Proyectar Diapositiva 18 "Reflexión sobre el Brain Gym"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora que hemos aprendido a combinar, duplicar, copiar y transformar formas en Tinkercad, piensen en cómo estas herramientas pueden ayudarnos a crear diseños mucho más complejos y personalizados.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 4 (4 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('statechange')">
+        <div class="title">
+            <span>🐱 Actividad 4: State Change (4 pasos)</span>
+            <span>⏰ Tiempo: 3.5 minutos</span>
+        </div>
+        <div class="subtitle">Relajarnos y soltar la tensión con el Estiramiento de Gato</div>
+    </div>
+    <div id="statechange" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 19 "Estiramiento de Gato"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Vamos a hacer una breve pausa para relajarnos y soltar la tensión con un estiramiento que llamamos "Estiramiento de Gato". Esta actividad nos ayudará a relajar los músculos y reducir la tensión para que podamos seguir concentrados.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1.0 minutos): Proyectar Diapositiva 20 "Arqueando la Espalda"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Para empezar, quiero que se pongan cómodos en su lugar y arqueen la espalda como un gato cuando se estira. Sientan cómo se estiran los músculos de la espalda y cómo liberan cualquier tensión acumulada.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1.0 minutos): Proyectar Diapositiva 21 "Estirando los Brazos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora, estiren los brazos hacia adelante, lo más lejos que puedan, como si fueran un gato alcanzando algo. Mantengan la posición por unos segundos y sientan cómo se alargan los músculos de los brazos y la espalda.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1.0 minutos): Proyectar Diapositiva 22 "Relajación"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Suelten lentamente el estiramiento, respiren profundamente y sientan cómo su cuerpo se relaja. Este estiramiento es ideal para liberar tensión y mantenerse enfocados durante el día. Ahora, con la mente y el cuerpo relajados, sigamos adelante con nuestra misión.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 5 (3 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('teamgnius')">
+        <div class="title">
+            <span>🤝 Actividad 5: Team Gnius (3 pasos)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Formación de equipos para trabajar en el reto</div>
+    </div>
+    <div id="teamgnius" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 23 "Formación de Equipos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora que hemos relajado nuestra mente y nuestros ojos, es momento de trabajar en parejas. Vamos a formar equipos de dos personas para el reto que sigue. Busquen a alguien con quien les gustaría trabajar y formen su equipo.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1.0 minutos): Proyectar Diapositiva 24 "Organización en Parejas"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Tienen 30 segundos para encontrar a su compañero de equipo. Cuando lo hagan, levanten la mano para que pueda ver que están listos. Recuerden que el trabajo en equipo es clave para superar el reto de hoy.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 25 "Listos para el Reto"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Muy bien, ahora que están en parejas, están listos para el siguiente reto. Trabajar en equipo les permitirá compartir ideas y encontrar soluciones creativas. Vamos a seguir adelante con la misión.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 6 (7 pasos) -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">
+            <span>🏗️ Actividad 6: Challenge (7 pasos)</span>
+            <span>⏰ Tiempo: 15 minutos</span>
+        </div>
+        <div class="subtitle">Desafío de construir una pirámide en Tinkercad</div>
+    </div>
+    <div id="challenge" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 26 "Construyendo una Pirámide"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora que hemos aprendido a agrupar y crear huecos en Tinkercad, es momento de poner en práctica lo que hemos aprendido. Su desafío es construir una pirámide cuadrangular lo más perfecta posible, usando únicamente cuadrados y cuadrados huecos.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 27 "Reglas del Desafío"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Para este desafío, recuerden que solo pueden usar cuadrados y cuadrados huecos. El objetivo es que su pirámide tenga una base cuadrada y que las cuatro caras converjan en un punto lo más preciso posible.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (2 minutos): Proyectar Diapositiva 28 "Desafío Extra - Estrella de 5 Picos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Para aquellos que terminen la pirámide antes de tiempo, aquí va un desafío extra: ¡pueden ganar Mon-e! El reto es construir una estrella de 5 picos usando solo cubos y cubos huecos. La creatividad es clave, así que piensen en cómo podrían combinar las formas para lograrlo.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (7 minutos): Proyectar Diapositiva 29 "Tiempo de Creación"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora tienen 7 minutos para trabajar en su pirámide y, si tienen tiempo, en la estrella. Recuerden aplicar lo que hemos aprendido sobre agrupar y crear huecos. ¡Vamos a ver qué tan creativos pueden ser!
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (2 minutos): Proyectar Diapositiva 30 "Revisión del Desafío"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                ¡Tiempo! Es momento de detenerse y revisar lo que han creado. Estoy seguro de que han hecho un gran trabajo. Vamos a ver cómo cumplimos con los objetivos de la misión de hoy.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (1 minuto): Proyectar Diapositiva 31 "Objetivos de la Misión"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hoy logramos dos cosas importantes: <br>
+                1. Aprender a combinar objetos sólidos en Tinkercad para crear nuevas formas. <br>
+                2. Explorar cómo usar objetos huecos para cortar y transformar otras formas. ¡Excelente trabajo, Genios!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 7 (3 pasos) -->
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('easteregg')">
+        <div class="title">
+            <span>🎁 Actividad 7: Easter Egg (3 pasos)</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Evaluación sorpresa para ganar Mon-e</div>
+    </div>
+    <div id="easteregg" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 32 "Easter Egg Pregunta"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                ¡Llegó el momento de ver quién ha estado prestando atención! La siguiente diapositiva tiene una pregunta sobre algo que hicimos hoy. Voy a premiar con Mon-e a las tres primeras personas que me den la respuesta correcta. Recuerden, solo levanten la mano si saben la respuesta, no la digan en voz alta. ¿Listos?
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 33 "Respuestas en Silencio"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Uno, dos, tres... Ahora, uno por uno, vengan y díganme la respuesta al oído. Veamos si recuerdan cuál fue el animal que inspiró nuestro estiramiento de hoy.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 34 "Respuesta Correcta"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                ¡Muy bien! La respuesta correcta es el gato. ¡Felicitaciones a los que acertaron, tienen Mon-e! Ahora que hemos terminado, vamos a prepararnos para la siguiente parte de nuestra misión.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 8 (1 paso) -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('honordojo')">
+        <div class="title">
+            <span>🏅 Actividad 8: Honor de Dojo (1 paso)</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Organización del salón y recogida de materiales</div>
+    </div>
+    <div id="honordojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (3 minutos): Proyectar Diapositiva 35 "Honor de Dojo"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Recuerden cerrar sus sillas, recoger sus cosas y acomodar el laboratorio para que pueda recibir la siguiente tanda de genios. ¡Gran trabajo hoy, Genios!
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
